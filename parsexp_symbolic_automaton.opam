@@ -13,7 +13,7 @@ depends: [
   "ocaml" {>= "4.14.0"}
   "base"
   "ppx_jane"
-  "dune"     {>= "3.11.0"}
+  "dune"     {>= "3.17.0"}
 ]
 available: arch != "arm32" & arch != "x86_32"
 synopsis: "S-expression symbolic automaton library"

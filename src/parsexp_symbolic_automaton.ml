@@ -5,9 +5,8 @@
     - to define the automaton and generate parser code.
     - for tests
 
-    At parser runtime, we instead use an integer for states and a table of
-    functions for transitions
-*)
+    At parser runtime, we instead use an integer for states and a table of functions for
+    transitions *)
 
 (** It is possible that a modern and good parser generator can simplify the parser
     definition further.
@@ -21,8 +20,7 @@
 
     [Sexplib] had both a lex/yacc generated parser and a handwritten one for performance.
     [Parsexp] had to match the performance of the handwritten parser (which we did, with
-    less allocation).
-*)
+    less allocation). *)
 
 open! Base
 module Automaton = Automaton
