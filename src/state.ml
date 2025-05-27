@@ -10,10 +10,10 @@ type t =
   | After_hash
   | Quoted_string of Quoted_string.t
   | Block_comment of Block_comment.t
-[@@deriving enumerate, compare, sexp_of]
+[@@deriving enumerate, compare ~localize, sexp_of]
 
 include Comparator.Make (struct
-    type nonrec t = t [@@deriving compare, sexp_of]
+    type nonrec t = t [@@deriving compare ~localize, sexp_of]
   end)
 
 let to_int t =

@@ -22,7 +22,7 @@ module Action = struct
     | Start_block_comment
     | Start_sexp_comment
     | Start_line_comment
-  [@@deriving compare, sexp_of, hash, variants]
+  [@@deriving compare ~localize, sexp_of, hash, variants]
 end
 
 (** Action associated to epsilon transitions, i.e. transitions that do not consume a
@@ -38,7 +38,7 @@ module Epsilon_action = struct
     | Add_first_char_hash
     | Add_escaped_cr
     | End_line_comment
-  [@@deriving compare, sexp_of, hash, variants]
+  [@@deriving compare ~localize, sexp_of, hash, variants]
 end
 
 module Transition = struct
@@ -49,7 +49,7 @@ module Transition = struct
     | End_block_comment
       (* can't be a normal transition, as the new state isn't known
        statically *)
-  [@@deriving compare]
+  [@@deriving compare ~localize]
 end
 
 module Final_transition = struct

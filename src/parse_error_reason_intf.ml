@@ -11,7 +11,7 @@ module T = struct
     | Unexpected_character_after_cr
     | Unterminated_block_comment
     | Unterminated_quoted_string
-  [@@deriving compare, enumerate, hash, sexp_of, variants]
+  [@@deriving compare ~localize, enumerate, hash, sexp_of, variants]
 end
 
 module type Parse_error_reason = sig
