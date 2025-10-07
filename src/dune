@@ -3,4 +3,4 @@
  (public_name parsexp_symbolic_automaton)
  (libraries base)
  (preprocess
-  (pps ppx_jane)))
+  (pps ppx_jane -require-template-extension)))

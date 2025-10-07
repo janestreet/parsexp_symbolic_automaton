@@ -4,21 +4,21 @@ open! Base
 
 module Action = struct
   type t = Automaton.Epsilon_action.t list * Automaton.Action.t
-  [@@deriving compare, sexp_of, hash]
+  [@@deriving compare ~localize, sexp_of, hash]
 end
 
 module Goto_state = struct
   type t =
     | State of int
     | End_block_comment
-  [@@deriving compare, sexp_of, hash]
+  [@@deriving compare ~localize, sexp_of, hash]
 end
 
 module Advance = struct
   type t =
     | Advance
     | Advance_eol
-  [@@deriving compare, sexp_of, hash]
+  [@@deriving compare ~localize, sexp_of, hash]
 end
 
 module Transition = struct
@@ -27,14 +27,14 @@ module Transition = struct
     ; goto : Goto_state.t
     ; advance : Advance.t
     }
-  [@@deriving compare, sexp_of, hash]
+  [@@deriving compare ~localize, sexp_of, hash]
 end
 
 module Or_parse_error_reason = struct
   type 'a t =
     | Ok of 'a
     | Error of Parse_error_reason.t
-  [@@deriving compare, sexp_of, hash]
+  [@@deriving compare ~localize, sexp_of, hash]
 end
 
 module type Table = sig

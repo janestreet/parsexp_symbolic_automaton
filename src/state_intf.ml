@@ -10,7 +10,7 @@ module Quoted_string = struct
     | After_backslash_x
     | After_backslash_x_hex
     | Ignoring_blanks
-  [@@deriving enumerate, compare, sexp_of]
+  [@@deriving enumerate, compare ~localize, sexp_of]
 end
 
 module Block_comment = struct
@@ -19,7 +19,7 @@ module Block_comment = struct
     | After_pipe
     | After_hash
     | Quoted_string of Quoted_string.t
-  [@@deriving enumerate, compare, sexp_of]
+  [@@deriving enumerate, compare ~localize, sexp_of]
 end
 
 module Unquoted_string = struct
@@ -27,7 +27,7 @@ module Unquoted_string = struct
     | Normal
     | After_hash
     | After_pipe
-  [@@deriving enumerate, compare, sexp_of]
+  [@@deriving enumerate, compare ~localize, sexp_of]
 end
 
 module type State = sig
@@ -44,7 +44,7 @@ module type State = sig
     | After_hash
     | Quoted_string of Quoted_string.t
     | Block_comment of Block_comment.t
-  [@@deriving enumerate, compare, sexp_of]
+  [@@deriving enumerate, compare ~localize, sexp_of]
 
   include Comparator.S with type t := t
 
